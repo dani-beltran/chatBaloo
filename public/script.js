@@ -10,6 +10,30 @@ var dialogLines = [
     }
   },
   {
+    pattern: 'hola|(como estas)|buenas', 
+    line: 'Hola! Que tal estas tu compadre? Yo estoy perezoso y me pica la espalda. A ver si puedes alcanzarme justo ahi.'
+  },
+  {
+    pattern: 'si|yes', 
+    line: 'Si que? Explicate muchacho, que quieres?'
+  },
+  {
+    pattern: 'no', 
+    line: 'No que? Explicate muchacho, que quieres?'
+  },
+  {
+    pattern: 'cuentame|dime|cuento|(me aburro)|',
+    line: 'Aqui va uno de los grandes! Una hormiga liga con un elefante, y en mitad del asunto el elefante va y se muere de un infarto. Entonces la hormiga dice: - Que asco de vida, 15 minutos de pasión y el resto de tu existencia.... ¡¡¡ Cavando una tumba !!!'
+  },
+  {
+    pattern: 'gustazo|hippi|relax|descansa|relajate', 
+    line: 'Ahhhh si, dejate llevar.'
+  },
+  {
+    pattern: 'mogli|mowgli|kaa|bagheera|(shere khan)|baguira|serpiente|tigre|pantera', 
+    line: 'Solo estamos tu y yo amiguito.'
+  },
+  {
     pattern: 'canta|cantame|cancion|musica|melodia|bailar', 
     line: 'Pegate al ritmo! Si buscas lo mas esencial sin nada mas ambicionar, mama naturaleza te lo da! Busca lo mas vital nomas, lo que es necesidad nomas, y olvidate de la preocupacion ' + String.fromCharCode('9835')
   },
@@ -22,7 +46,7 @@ var dialogLines = [
     line: 'Antes de usar la mano, usa siempre un palo. Usaras la mano cuando tomes la fruta del banano'
   },
   {
-    pattern: 'pica|rasca|pulga|piojo|escuece', 
+    pattern: 'pica|rasca|pulga|piojo|escuece|rasco|rascar|arbol', 
     line: 'Uy %name%! Tenemo que buscar un arbol. Ahh rico! ahhhhh ooooooh, esto es delicioso. Ahi ahi ahi! oooooh que sabrosura, me gusta. ahhhh uuuuuhhh un poquito mas. Vamos a rascarnos en ese arbol. Oooooh siiii, aqui es donde! uuuuuuuuh ah! compadre esto si que es vida.'
   }, 
   {
@@ -34,7 +58,7 @@ var dialogLines = [
     line: 'Las hormigas encuentro bien, y saboreo por lo menos 100, del primer lenguetazo. Jajajaja hasta sin sal me gustan, pican mas sabroso que la pimienta.'
   },
   {
-    pattern: '(loui)|mono|orangutan',
+    pattern: '(loui)|mono|orangutan|enemigo',
     line: ' ¡Lo voy a hacer pedazos! ¡Lo patearé! Lo... '
   },
   {
@@ -104,15 +128,36 @@ function isEnterKeyPressed(event) {
 }
 
 function printTextWithAnimation(targetElem, text, pace) {
+  blockInput();
   targetElem.innerHTML = '';
   var characters = text.split('');
   var i = 0;
   var interval = setInterval(function() {
     if (i >= characters.length) {
       clearInterval(interval);
+      unlockInput();
     } else {
       targetElem.innerHTML += characters[i];
       i++;
+      scrollDialogToBottom();
     }
   }, pace);
+}
+
+function blockInput() {
+  var target = document.getElementById('pc-input'); 
+  target.disabled = true;
+}
+
+function unlockInput() {
+  var target = document.getElementById('pc-input'); 
+  target.disabled = false;
+  target.focus();
+}
+
+function scrollDialogToBottom() {
+  var targetOffset = document.getElementById('hook-scroll').offsetTop;
+
+  var dialogBox = document.getElementById('dialog-npc');
+  dialogBox.scrollTop = targetOffset;
 }
