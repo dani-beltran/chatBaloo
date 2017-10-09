@@ -22,7 +22,7 @@ var dialogLines = [
     line: 'No que? Explicate muchacho, que quieres?'
   },
   {
-    pattern: 'cuentame|dime|cuento|(me aburro)|',
+    pattern: 'cuentame|dime|cuento|(me aburro)',
     line: 'Aqui va uno de los grandes! Una hormiga liga con un elefante, y en mitad del asunto el elefante va y se muere de un infarto. Entonces la hormiga dice: - Que asco de vida, 15 minutos de pasión y el resto de tu existencia.... ¡¡¡ Cavando una tumba !!!'
   },
   {
