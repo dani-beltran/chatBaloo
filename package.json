@@ -1,0 +1,25 @@
+{
+  "name": "chatbaloo",
+  "version": "0.0.1",
+  "description": "Just a chatbot of Baloo, for the fun of it.",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server public --port=3300",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diblex/chatBaloo.git"
+  },
+  "author": "danilidonbeltran@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diblex/chatBaloo/issues"
+  },
+  "homepage": "https://github.com/diblex/chatBaloo#readme",
+  "dependencies": {
+    "http-server": "^0.10.0",
+    "live-server": "^1.2.0",
+    "watch-http-server": "^0.7.6"
+  }
+}
