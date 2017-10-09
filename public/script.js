@@ -157,7 +157,6 @@ function unlockInput() {
 
 function scrollDialogToBottom() {
   var targetOffset = document.getElementById('hook-scroll').offsetTop;
-
   var dialogBox = document.getElementById('dialog-npc');
   dialogBox.scrollTop = targetOffset;
 }
